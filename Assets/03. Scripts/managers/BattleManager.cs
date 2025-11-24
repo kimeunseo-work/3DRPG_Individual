@@ -6,6 +6,5 @@ public class BattleManager : Manager
 {
     public override void Init()
     {
-        throw new System.NotImplementedException();
     }
 }

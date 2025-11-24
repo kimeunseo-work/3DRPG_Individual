@@ -1,43 +1,46 @@
-﻿public class ManagerRoot : Singleton<ManagerRoot>
+﻿using UnityEngine;
+
+public class ManagerRoot : Singleton<ManagerRoot>
 {
     /*전역 유지 필수*/
-    public GameManager gameManager;
-    public DataManager dataManager;
-    public UIManager uiManager;
-    public ResourceManager resourceManager;
-    public SoundManager audioManager;
+    public GameManager GameManager;
+    public DataManager DataManager;
+    public UIManager UiManager;
+    public ResourceManager ResourceManager;
+    public SoundManager AudioManager;
 
     /*인 게임에서만 유지하면 됨*/
-    public BattleManager battleManager;
-    public CharacterManager characterManager;
-    public StageManager stageManager;
-    public ItemManager itemManager;
+    public BattleManager BattleManager;
+    public CharacterManager CharacterManager;
+    public StageManager StageManager;
+    public ItemManager ItemManager;
 
     protected override void Awake()
     {
+        base.Awake();
+
         /*동적 할당*/
-        gameManager = new();
-        dataManager = new();
-        uiManager = new();
-        resourceManager = new();
-        audioManager = new();
+        GameManager = new();
+        DataManager = new();
+        UiManager = new();
+        ResourceManager = new();
+        AudioManager = new();
 
-        battleManager = new();
-        characterManager = new();
-        stageManager = new();
-        itemManager = new();
-
+        BattleManager = new();
+        CharacterManager = new();
+        StageManager = new();
+        ItemManager = new();
 
         /*초기화 순서*/
-        gameManager.Init();
-        dataManager.Init();
-        uiManager.Init();
-        resourceManager.Init();
-        audioManager.Init();
+        GameManager.Init();
+        DataManager.Init();
+        UiManager.Init();
+        ResourceManager.Init();
+        AudioManager.Init();
 
-        battleManager.Init();
-        characterManager.Init();
-        stageManager.Init();
-        itemManager.Init();
+        BattleManager.Init();
+        CharacterManager.Init();
+        StageManager.Init();
+        ItemManager.Init();
     }
 }

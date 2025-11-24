@@ -6,6 +6,5 @@ public class DataManager : Manager
 {
     public override void Init()
     {
-        throw new System.NotImplementedException();
     }
 }

@@ -6,6 +6,5 @@ public class GameManager : Manager
 {
     public override void Init()
     {
-        throw new System.NotImplementedException();
     }
 }
