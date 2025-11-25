@@ -4,7 +4,7 @@ using UnityEngine.UI;
 /// Image 컴포넌트를 기반으로 현재 값과 최대 값을 가지고
 /// 시각적 정보를 제공하는 오브젝트의 컨트롤러 스크립트
 /// </summary>
-public class ValueBarController : MonoBehaviour
+public class ValueBarController : ValueUIController<int, int>
 {
     [Header("Component")]
     [SerializeField] Image image;
@@ -51,12 +51,12 @@ public class ValueBarController : MonoBehaviour
             return;
         }
 
-        characterManager.StatEvents[type] += CharacterManager_ValueChanged;
+        characterManager.StatEvents[type] += ValueChangedHandler;
     }
 
     private void OnDisable()
     {
-        characterManager.StatEvents[type] -= CharacterManager_ValueChanged;
+        characterManager.StatEvents[type] -= ValueChangedHandler;
     }
 
     private void Start()
@@ -74,8 +74,8 @@ public class ValueBarController : MonoBehaviour
 
     #endregion
 
-    private void CharacterManager_ValueChanged(int value, int maxValue)
+    protected override void ValueChangedHandler(int value1, int value2)
     {
-        image.fillAmount = (float)value / maxValue;
+        image.fillAmount = (float)value1 / value2;
     }
 }
