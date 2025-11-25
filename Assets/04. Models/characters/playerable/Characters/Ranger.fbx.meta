@@ -3,7 +3,12 @@ guid: a483c137b510a574a904cd3d4bcef1dd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ranger
+    second: {fileID: 2100000, guid: 33f827bdb0ec98e45a7bbb76c80cc2d9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
