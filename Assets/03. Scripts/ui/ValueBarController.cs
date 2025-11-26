@@ -36,27 +36,12 @@ public class ValueBarController : ValueUIController<int, int>
 
     private void OnEnable()
     {
-        // 유효하지 않은 키
-        Debug.Assert(
-            characterManager.StatEvents.ContainsKey(type),
-            $"{type} is not Valid"
-        );
-
-        // 이벤트가 없는 경우
-        if (characterManager.StatEvents.ContainsKey(type)
-            && characterManager.StatEvents[type] == null
-        )
-        {
-            Debug.Log($"StatEvents is null");
-            return;
-        }
-
-        characterManager.StatEvents[type] += ValueChangedHandler;
+        StatEventBus.Add(type, ValueChangedHandler);
     }
 
     private void OnDisable()
     {
-        characterManager.StatEvents[type] -= ValueChangedHandler;
+        StatEventBus.Remove(type, ValueChangedHandler);
     }
 
     private void Start()

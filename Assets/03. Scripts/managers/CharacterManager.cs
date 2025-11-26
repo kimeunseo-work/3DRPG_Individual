@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public enum Stat
@@ -61,7 +60,6 @@ public class CharacterManager : Manager
     #endregion
 
     public Dictionary<Stat, int> Stats;
-    public Dictionary<Stat, Action<int, int>> StatEvents;
 
     public override void Init()
     {
@@ -82,13 +80,6 @@ public class CharacterManager : Manager
             {Stat.Exp, Exp},
             {Stat.MaxExp, MaxExp},
         };
-
-        StatEvents = new()
-        {
-            {Stat.Hp, delegate { }},
-            {Stat.Mp, delegate { }},
-            {Stat.Exp, delegate { }},
-        };
     }
 
     #region In/Decrease Stats
@@ -97,25 +88,25 @@ public class CharacterManager : Manager
     public void IncreaseHp(int amount)
     {
         Hp += amount;
-        StatEvents[Stat.Hp]?.Invoke(Hp, MaxHp);
+        StatEventBus.Invoke(Stat.Hp, Hp, MaxHp);
     }
 
     public void DecreaseHp(int amount)
     {
         Hp -= amount;
-        StatEvents[Stat.Hp]?.Invoke(Hp, MaxHp);
+        StatEventBus.Invoke(Stat.Hp, Hp, MaxHp);
     }
 
     public void IncreaseMaxHp(int amount)
     {
         MaxHp += amount;
-        StatEvents[Stat.Hp]?.Invoke(Hp, MaxHp);
+        StatEventBus.Invoke(Stat.Hp, Hp, MaxHp);
     }
 
     public void DecreaseMaxHp(int amount)
     {
         MaxHp -= amount;
-        StatEvents[Stat.Hp]?.Invoke(Hp, MaxHp);
+        StatEventBus.Invoke(Stat.Hp, Hp, MaxHp);
     }
     #endregion
 
@@ -123,24 +114,24 @@ public class CharacterManager : Manager
     public void IncreaseMp(int amount)
     {
         Mp += amount;
-        StatEvents[Stat.Mp]?.Invoke(Mp, MaxMp);
+        StatEventBus.Invoke(Stat.Mp, Mp, MaxMp);
     }
 
     public void DecreaseMp(int amount)
     {
         Mp -= amount;
-        StatEvents[Stat.Mp]?.Invoke(Mp, MaxMp);
+        StatEventBus.Invoke(Stat.Mp, Mp, MaxMp);
     }
     public void IncreaseMaxMp(int amount)
     {
         MaxMp += amount;
-        StatEvents[Stat.Mp]?.Invoke(Mp, MaxMp);
+        StatEventBus.Invoke(Stat.Mp, Mp, MaxMp);
     }
 
     public void DecreaseMaxMp(int amount)
     {
         MaxMp -= amount;
-        StatEvents[Stat.Mp]?.Invoke(Mp, MaxMp);
+        StatEventBus.Invoke(Stat.Mp, Mp, MaxMp);
     }
     #endregion
 
@@ -148,24 +139,24 @@ public class CharacterManager : Manager
     public void IncreaseExp(int amount)
     {
         Exp += amount;
-        StatEvents[Stat.Exp]?.Invoke(Exp, MaxExp);
+        StatEventBus.Invoke(Stat.Exp, Exp, MaxExp);
     }
 
     public void DecreaseExp(int amount)
     {
         Exp -= amount;
-        StatEvents[Stat.Exp]?.Invoke(Exp, MaxExp);
+        StatEventBus.Invoke(Stat.Exp, Exp, MaxExp);
     }
     public void IncreaseMaxExp(int amount)
     {
         MaxExp += amount;
-        StatEvents[Stat.Exp]?.Invoke(Exp, MaxExp);
+        StatEventBus.Invoke(Stat.Exp, Exp, MaxExp);
     }
 
     public void DecreaseMaxExp(int amount)
     {
         MaxExp -= amount;
-        StatEvents[Stat.Exp]?.Invoke(Exp, MaxExp);
+        StatEventBus.Invoke(Stat.Exp, Exp, MaxExp);
     }
     #endregion
 
