@@ -1537,7 +1537,7 @@ GameObject:
   - component: {fileID: 8822201026870284029}
   - component: {fileID: 609634485556788837}
   m_Layer: 0
-  m_Name: Barbarian
+  m_Name: Babarian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1578,19 +1578,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c6ea9b0f094b64ca2c97e2a14409bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Data>k__BackingField: {fileID: 11400000, guid: 5794512b036437648a6a56afc3017905,
-    type: 2}
+  type: 1
+  data: {fileID: 11400000, guid: 5794512b036437648a6a56afc3017905, type: 2}
+  target: {fileID: 0}
+  controller: {fileID: 609634485556788837}
   animator: {fileID: 8822201026870284029}
-  <AnimationData>k__BackingField:
+  animationData:
     aliveParameterName: '@Alive'
     runParameterName: Run
     battleParameterName: '@Battle'
     attackParameterName: Attack
     skillParameterName: Skill
     dieParameterName: Die
-  isDead: 0
-  isBattle: 0
-  isSkill: 0
 --- !u!95 &8822201026870284029
 Animator:
   serializedVersion: 5

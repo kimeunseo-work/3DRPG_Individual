@@ -13,7 +13,7 @@ public class ManagerRoot : Singleton<ManagerRoot>
     public BattleManager BattleManager;
     public CharacterManager CharacterManager;
     public StageManager StageManager;
-    public ItemManager ItemManager;
+    public InventoryManager ItemManager;
 
     protected override void Awake()
     {
